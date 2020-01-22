@@ -1,0 +1,88 @@
+DESCRIPTION:
+The purpose of this file is to show a sample of my SQL abilities.
+The following is a series of tasks and their associated queries. 
+These queries are based on tasks I completed and queries I wrote in previous positions. 
+These tasks and queries are based on a hypothetical company that delivers cakes and pies to offices.
+
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+--TASK 1
+--Create a single table that contains:
+--  The account_id_number and name of every active account in region 3 of Italy.
+--  The numbers of cake and pie customers for each company account.
+--  The count of active individuals listed for each company account.
+--  The count of individuals who ordered at least one cake or pie between 7/12/2016 and 2/25/2018.
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+--QUERY FOR TASK 1
+SELECT *
+
+FROM
+			(SELECT dc.account_id_number
+				, dc.company_name
+				, dc.total_cake_orders
+				, dc.total_pie_orders
+				, count(distinct(di.individual_id) as Num_Act_Individuals
+
+			FROM dimension_company as dc
+
+			LEFT JOIN dimension_individual as di
+				on di.account_id=dc.id
+
+			WHERE dc.region_id ='italy3'
+				and dc.active = '1'
+
+			GROUP BY dc.account_id_number
+				, dc.company_name
+				, dc.total_cake_orders
+				, dc.total_pie_orders
+
+			ORDER BY dc.account_id_number
+			)
+		as main_query
+
+LEFT JOIN
+			(SELECT dc.account_id_number
+					,count(distinct(di.individual_id)) as Num_Cakes_Delivered
+
+			from fact_individual_cake_delivered as ficd
+
+			INNER JOIN dimension_individual as ds
+				on ficd.individual_id = di.individual_id
+
+			INNER JOIN dimension_company as da
+				on di.account_id=dc.id
+
+			WHERE
+				ficd.status = '2'
+				and (ficd.delivery_time > '2016-07-12 00:00:00'
+					and ficd.delivery_time < '2018-02-25 23:59:59')
+
+			GROUP BY dc.account_id_number
+			)
+		as subquery_C
+		on main_query.account_id_number = subquery_M.account_id_number
+
+LEFT JOIN
+			(SELECT dc.account_id_number
+					, count(distinct(di.individual_id)) as count_pies_delivered
+
+			from fact_student_assessment_ela as fipd
+
+			INNER JOIN dimension_individual as ds
+				on fipd.individual_id = di.individual_id
+
+			INNER JOIN dimension_company as da
+				on di.account_id=dc.id
+
+			WHERE
+				fipd.status = '2'
+				and (fipd.delivery_time > '2017-08-01 00:00:00'
+					and fipd.delivery_time < '2018-01-15 23:59:59')
+
+			GROUP BY dc.account_id_number
+			)
+		as subquery_P
+		on main_query.account_id_number = subquery_E.account_id_number
