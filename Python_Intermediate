@@ -1,0 +1,209 @@
+"""
+DESCRIPTION:
+The following functions represent an intermediate knowledge Python.
+Each function or group of functions is seperated by a single line comment of X's.
+Each function or group of functions begin with a multi-line comment describing the functions purpose.
+These functions are the result of self-teaching as well as practice exercises found through W3resource.
+"""
+
+
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+List Comparison
+The following function returns a list of colors from color_list_1 which are not present in color_list_2.
+"""
+
+color_list_1 = set(["White", "Black", "Red"])
+color_list_2 = set(["Red", "Green"])
+
+def inlist1_notinlist2(list1 , list2):
+    new_list = []
+    for i in list1:
+        if i in list2:
+            continue
+        else:
+            new_list.append(i)
+    return new_list
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+Calculation
+The following function uses an input of base and height to return area of a triangle.
+"""
+
+def tri_area(base , height):
+    return base * height * (1/2)
+
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+Greatest Common Divisor (GCD)
+The following function returns the greatest common divisor of two integers.
+"""
+
+def gcd(integer1 , integer2):
+    max_int = max(integer1 , integer2)
+    frame_list = list(range(max_int))
+    divisors_int1 = []
+    divisors_int2 = []
+    for i in frame_list:
+        if i == 0:
+            continue
+        if integer1 % i == 0:
+            divisors_int1.append(i)
+        if integer2 % i == 0:
+            divisors_int2.append(i)
+    common_divisors = []
+    for i in divisors_int1:
+        if i in divisors_int2:
+            common_divisors.append(i)
+    return max(common_divisors)
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+Least Common Multiple (LCM)
+The following function returns the least common multiple (LCM) of two integers.
+"""
+def lcm(integer1 , integer2):
+    max_multiple = integer1 * integer2
+    frame_list = list(range(max_multiple))
+    multiples_int1 = []
+    multiples_int2 = []
+    for i in frame_list:
+        if i == 0:
+            continue
+        else:
+            multiples_int1.append(i * integer1)
+            multiples_int2.append(i * integer2)
+    common_multiples = []
+    for i in multiples_int1:
+        if i in multiples_int2:
+            common_multiples.append(i)
+    return min(common_multiples)
+
+
+       
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+Distance Between Two Points
+The following function returns the distance between two graphical points.
+"""
+def distance(x1,x2,y1,y2):
+    answer = (y2 - y1) / (x2 - x1)
+    return answer
+
+
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+List Sum
+The following function returns the sum of a list.
+"""
+
+def full_sum(num):
+    framelist = list(range(num + 1))
+    return sum(framelist)
+
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+Height Conversion
+The following function returns a height (in feet and inches) converted to centimeters.
+"""
+
+def height_convert(feet , inches):
+    feet_in_inches = feet * 12
+    total_inches = inches + feet_in_inches
+    height_in_cm = total_inches * 2.54
+    return "Height in cm is " + str(height_in_cm)
+    
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+Distance Conversion
+The following function takes an input of distance in feet and returns a distance as 
+a string of miles, yards, feet, and inches.
+"""
+
+def imperial(distance_in_feet):
+    inches = distance_in_feet * 12
+    miles = round(inches / 63360)
+    remaining_inches_after_miles = inches % 63360
+    yards = round(remaining_inches_after_miles / 36)
+    remaining_inches_after_yards = remaining_inches_after_miles % 36
+    feet = round(remaining_inches_after_yards / 12)
+    remaining_inches_after_feet = remaining_inches_after_yards % 12
+    return "Distance is " + str(miles) + " miles " + str(yards) + " yards " + \
+        str(feet) + " feet and " + str(round(remaining_inches_after_feet , 2)) + " inches"
+
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+Hypotenuse
+The following function returns the hypotenuse of a triangle using the lengths of two sides.
+"""
+
+def hypotenuse(side_a , side_b):
+    return ((side_a ** 2) + (side_b ** 2)) ** (1/2)
+
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+Body Mass Index (BMI)
+The following function returns the BMI based on a height in inches and a weight in pounds.
+"""
+
+def bmi(height_in_inches , weight_in_lbs):
+    body_mass_index = 703 * (weight_in_lbs / ((height_in_inches) ** 2))
+    return body_mass_index
+
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+Organize Integers (Knowledge Exercise)
+The following function sorts three integers from largest to smallest WITHOUT using conditional statements or loops.
+"""
+
+def organize_integers(num1 , num2 , num3):
+    list_of_integers = [num1 , num2 , num3]
+    first_highest = max(list_of_integers)
+    list_of_integers.remove(first_highest)
+    second_highest = max(list_of_integers)
+    list_of_integers.remove(second_highest)
+    third_highest = max(list_of_integers)
+    final_list = [first_highest , second_highest , third_highest]
+    return final_list
+
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+All Greater Than
+The following function returns a string showing whether all numbers in a list are greater than 25.
+"""
+
+def greaterthan_25(list_of_numbers):
+   test_list = []
+   for i in list_of_numbers:
+        if i >= 25:
+            test_list.append(1)
+        else:
+            test_list.append(0)
+   if max(test_list) == 0:
+       return "All numbers less than 25"
+   else:
+       return "Atleast one number greater than or equal to 25"
+
+        
