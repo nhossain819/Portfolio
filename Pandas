@@ -2,10 +2,7 @@
 DESCRIPTION:
 The following is a sample of my Pandas skillset.
 
-Each function or group of functions is seperated by a single line comment of X's.
-Each function or group of functions begin with a multi-line comment describing the functions purpose.
-
-These functions are the result of self-teaching as well as practice exercises found through W3resource.
+These are the result of self-teaching as well as practice exercises found through W3resource.
 
 SAMPLE DATASET CREDIT: The dataset used here is a sample dataset found on W3resource and 
 originating from https://github.com/mwaskom/seaborn-data
