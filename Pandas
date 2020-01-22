@@ -6,141 +6,122 @@ These are the result of self-teaching as well as practice exercises found throug
 
 SAMPLE DATASET CREDIT: The dataset used here is a sample dataset found on W3resource and 
 originating from https://github.com/mwaskom/seaborn-data
+
 """
 
-
-
-
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#SAMPLE ROWS FROM DATASET
+"carat","cut","color","clarity","depth","table","price","x","y","z"
+0.23,"Ideal","E","SI2",61.5,55,326,3.95,3.98,2.43
+0.21,"Premium","E","SI1",59.8,61,326,3.89,3.84,2.31
+0.23,"Good","E","VS1",56.9,65,327,4.05,4.07,2.31
+0.29,"Premium","I","VS2",62.4,58,334,4.2,4.23,2.63
+...
+0.7,"Very Good","D","SI1",62.8,60,2757,5.66,5.68,3.56
+0.86,"Premium","H","SI2",61,58,2757,6.15,6.12,3.74
+0.75,"Ideal","D","SI2",62.2,55,2757,5.83,5.87,3.64
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
 
 import pandas as pd
 
-
-
-df1 = pd.DataFrame({
-  'Product ID': [1, 2, 3, 4],
-  'Product Name': [ 't-shirt', 't-shirt', 'skirt', 'skirt'],
-  'Color': [ 'blue', 'green', 'red', 'black']
-})
-
-
-
-"""
-pd.set_option('display.max_rows', 50)
-pd.set_option('display.max_columns', 50)
-diamonds = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/diamonds.csv')
-print("First 5 rows:")
-print(diamonds.head())
-"""
-
 df = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/diamonds.csv')
 
-#the first 5 rows
-#print(df.head(5))
-
-#view information about the df
-#print(df.info())
+#Print the first 5 rows.
+print(df.head(5))
 
 
-#select specific rows by row number (starts from 0)
-#print(df.iloc[50:75])
 
-"""
-#select specific columns
+#Print information about the data frame.
+print(df.info())
+
+
+
+#Select rows 50 to 75.
+rows_50_to_75 = df.iloc[50:76]
+
+
+#Select specific rows and columns.
 carat_cut = df[['carat' , 'cut']]
-print(carat_cut.head())
+carat_cut_rows_5_10_15 = carat_cut.iloc[[5, 10, 15]]
 
-#select specific rows and columns, notice double brackets
-print(carat_cut.iloc[[5, 10, 15]])
-"""
-#
-"""
-print(df.head())
 
+#Create a subset of data with the best cut of diamond.
 best_cut = df[df.cut == 'Ideal']
-print(best_cut.head())
-"""
-#
-"""
+
+
+
+#Find the number of columns and rows.
 number_of_columns = len(df.axes[1])
 number_of_rows = len(df.axes[0])
 
-print(number_of_columns)
-print(number_of_rows)
-"""
-#
-"""
-missing_clarity = df[df['clarity'].isnull()]
-print(missing_clarity)
-"""
-#
-"""
-rows15to20 = df.iloc[15:21]
-print(rows15to20)
-"""
-#
-"""
-carat_between25and30 = df[(df.carat > 0.25) & (df.carat <= 0.3)]
-print(carat_between25and30.head())
-"""
 
-# descriptive statistics by specific column
-"""
+
+#Produce a subset of data with null clarity values.
+missing_clarity = df[df['clarity'].isnull()]
+
+
+
+#A subset of data with carat values between 0.25 and 0.30.
+carat_between25and30 = df[(df.carat > 0.25) & (df.carat <= 0.3)]
+
+
+#The descriptive statistics by a specific column.
 average_carat = df.carat.mean()
 max_carat = df.carat.max()
 min_carat = df.carat.min()
 median_carat = df.carat.median()
 sum_carat = df.carat.sum()
 
-print(max_carat)
-print(min_carat)
-print(average_carat)
-print(median_carat)
-print(sum_carat)
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+The following lines show how to find the average carat of each cut style.
+This concept is coded in three different ways using three different methods: groupby, for loop, and creating data subsets.
 """
 
-#average carat of each cut style
-#all hard coded 
-"""
-all_cuts = pd.unique(df.cut)
-print(all_cuts)
 
-idealcut = df[df.cut == 'Ideal']
-idealcut_meancarat = idealcut.carat.mean()
-print(round(idealcut_meancarat, 4))
+#average carat of each cut style using a groupby 
 
-premiumcut = df[df.cut == 'Premium']
-goodcut = df[df.cut == 'Good']
-verygoodcut = df[df.cut == 'Very Good']
-faircut = df[df.cut == 'Fair']
+carat_cut = df[['carat' , 'cut']]
+mean_carat_by_cut_type = carat_cut.groupby(['cut']).mean()
 
-premiumcut_meancarat = premiumcut.carat.mean()
-goodcut_meancarat = goodcut.carat.mean()
-verygoodcut_meancarat = verygoodcut.carat.mean()
-faircut_meancarat = faircut.carat.mean()
 
-print(premiumcut_meancarat)
-print(goodcut_meancarat)
-print(verygoodcut_meancarat)
-print(faircut_meancarat)
-"""
-#average carat of each cut style
-#uses a for loop
-"""
+#XXXXXXXXXXXXXX
+
+
+#average carat of each cut style using a for loop
+
 list_of_all_cuts = list(pd.unique(df.cut))
 
 for cut_type in list_of_all_cuts:
     cut_subset = df[df.cut == cut_type]
     cut_subset_meancarat = cut_subset.carat.mean()
     print('Mean Carat of ' + str(cut_type) + ' Cut ' + str(round(cut_subset_meancarat , 5)))
- """
-#average carat of each cut style
-#uses a group by 
-"""
-carat_cut = df[['carat' , 'cut']]
 
-mean_carat_by_cut_type = carat_cut.groupby(['cut']).mean()
-"""
+
+#XXXXXXXXXXXXXX
+
+
+#average carat of each cut style
+
+all_cuts = pd.unique(df.cut)
+
+idealcut = df[df.cut == 'Ideal']
+premiumcut = df[df.cut == 'Premium']
+goodcut = df[df.cut == 'Good']
+verygoodcut = df[df.cut == 'Very Good']
+faircut = df[df.cut == 'Fair']
+
+idealcut_meancarat = idealcut.carat.mean()
+premiumcut_meancarat = premiumcut.carat.mean()
+goodcut_meancarat = goodcut.carat.mean()
+verygoodcut_meancarat = verygoodcut.carat.mean()
+faircut_meancarat = faircut.carat.mean()
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 df['size'] = round((df.x * df.y * df.z) , 2)
