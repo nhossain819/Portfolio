@@ -1,0 +1,134 @@
+"""
+DESCRIPTION:
+The following functions represent a basic knowledge Python.
+Each function or group of functions is seperated by a single line comment of X's.
+Each function or group of functions begin with a multi-line comment describing the functions purpose.
+This is the result of self-teaching as well as practice exercises found through W3resource.
+"""
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+Fibonacci
+The function 'fib' interprets the input 'length' to return a fibonacci sequence of the given length.
+"""
+
+def fib(length):
+    fib_list = [1 , 1]
+    frame_list = list(range(length - 2))
+    if length <= 0:
+        return "Invalid Parameters"
+    elif length == 1:
+        return [1]
+    elif length == 2:
+        return fib_list
+    else:
+        for i in frame_list:
+            fib_list.append(fib_list[-1] + fib_list[-2])
+        return fib_list
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+Chalkboard
+The following functions print a phrase a specified number of times. 
+"""
+
+def chalkboard(phrase , num):
+    for i in list(range(num)):
+        print(phrase)
+    
+chalkboard('I will not chew gum in class.' , 5)
+
+def chalkboard2(phrase , num):
+    print phrase * num
+
+chalkboard2('I will not chew gum in class.' , 10)
+
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+Odds or Evens
+"""
+
+def odd_even(x):
+    if x % 2 == 0:
+        return "This number is even!"
+    else:
+        return "This number is odd!"
+    
+odd_even2 = lambda x: "This number is even!" if x % 2 == 0 else "This number is odd!"
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+Count the number of 4s
+"""
+list_of_numbers = [1, 5, 8, 4, 8, 3, 6, 4, 7, 9, 4, 3]
+
+count_of_4s = list_of_numbers.count(4)
+
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+Write a Python program to get the n (non-negative integer) copies of the first 
+2 characters of a given string. Return the n copies of the whole string if the 
+length is less than 2.
+
+return the first 2 characters of a string n times
+return the whole string if the length is less than 2
+
+"""
+
+def two_char(phrase , num):
+    if len(phrase) >= 3:
+        return phrase[:2] * num
+    elif len(phrase) < 3:
+        return phrase * num
+
+
+"""
+Write a Python program to test whether a passed letter is a vowel or not.
+"""
+
+def vowel(letter):
+    vowels = ['a' , 'e' , 'i' , 'o' , 'u']
+    if letter.lower() in vowels:
+        return "This letter is a vowel."
+    else:
+        return "This is not a vowel."
+    
+"""
+ Write a Python program to concatenate all elements in a list into a 
+ string and return it.
+"""
+
+def big_string(list_of_values):
+    return ' '.join(list_of_values)
+
+test_list = ['a' , 'b' , 'c']
+
+
+"""
+Write a Python program to print all even numbers from a given numbers list 
+in the same order and stop the printing if any numbers that come after 237 
+in the sequence.
+"""
+numbers = [    
+    386, 462, 47, 418, 907, 344, 236, 375, 823, 566, 597, 978, 328, 615, 953, 345, 
+    399, 162, 758, 219, 918, 237, 412, 566, 826, 248, 866, 950, 626, 949, 687, 217, 
+    815, 67, 104, 58, 512, 24, 892, 894, 767, 553, 81, 379, 843, 831, 445, 742, 717, 
+    958,743, 527
+    ]
+
+def evens_until_237(numlist):
+    new_list = []
+    for i in list(numlist): 
+        if i % 2 == 0:
+            new_list.append(i)
+        elif i == 237:
+            break
+    return new_list
+
+print(evens_until_237(numbers))
+        
