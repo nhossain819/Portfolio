@@ -1,0 +1,107 @@
+  
+"""
+DESCRIPTION:
+1/22/20 ONGOING PROJECT
+
+The following program takes in a sudoku board in terms of its rows and returns a completed sudoku puzzle.
+"""
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+
+row1 = [0 , 0 , 0 , 2 , 6 , 0 , 7 , 0 , 1]
+row2 = [6 , 8 , 0 , 0 , 7 , 0 , 0 , 9 , 0]
+row3 = [1 , 9 , 0 , 0 , 0 , 4 , 5 , 0 , 0]
+row4 = [8 , 2 , 0 , 1 , 0 , 0 , 0 , 4 , 0]
+row5 = [0 , 0 , 4 , 6 , 0 , 2 , 9 , 0 , 0]
+row6 = [0 , 5 , 0 , 0 , 0 , 3 , 0 , 2 , 8]
+row7 = [0 , 0 , 9 , 3 , 0 , 0 , 0 , 7 , 4]
+row8 = [0 , 4 , 0 , 0 , 5 , 0 , 0 , 3 , 6]
+row9 = [7 , 0 , 3 , 0 , 1 , 8 , 0 , 0 , 0]
+
+def show_board():
+    print(row1)
+    print(row2)
+    print(row3)
+    print(row4)
+    print(row5)
+    print(row6)
+    print(row7)
+    print(row8)
+    print(row9)
+    
+    
+all_rows = list(row1 + row2 + row3 + row4 + row5 + row6 + row7 + row8 + row9)
+
+def columns(all_rows_list , column_number):
+    column = []
+    column.append(all_rows_list[column_number - 1])
+    column.append(all_rows_list[column_number + 9 - 1])
+    column.append(all_rows_list[column_number + (9 * 2) - 1])
+    column.append(all_rows_list[column_number + (9 * 3) - 1])
+    column.append(all_rows_list[column_number + (9 * 4) - 1])
+    column.append(all_rows_list[column_number + (9 * 5) - 1])
+    column.append(all_rows_list[column_number + (9 * 6) - 1])
+    column.append(all_rows_list[column_number + (9 * 7) - 1])
+    column.append(all_rows_list[column_number + (9 * 8) - 1])
+    return column
+    
+column1 = columns(all_rows , 1)
+column2 = columns(all_rows , 2)
+column3 = columns(all_rows , 3)
+column4 = columns(all_rows , 4)
+column5 = columns(all_rows , 5)
+column6 = columns(all_rows , 6)
+column7 = columns(all_rows , 7)
+column8 = columns(all_rows , 8)
+column9 = columns(all_rows , 9)
+
+
+
+
+square1 = [row1[0], row1[1], row1[2], row2[0], row2[1], row2[2], row3[0], row3[1], row3[2]]
+square2 = [row1[3], row1[4], row1[5], row2[3], row2[4], row2[5], row3[3], row3[4], row3[5]]
+square3 = [row1[6], row1[7], row1[8], row2[6], row2[7], row2[8], row3[6], row3[7], row3[8]]
+square4 = [row4[0], row4[1], row4[2], row5[0], row5[1], row5[2], row6[0], row6[1], row6[2]]
+square5 = [row4[3], row4[4], row4[5], row5[3], row5[4], row5[5], row6[3], row6[4], row6[5]]
+square6 = [row4[6], row4[7], row4[8], row5[6], row5[7], row5[8], row6[6], row6[7], row6[8]]
+square7 = [row7[0], row7[1], row7[2], row8[0], row8[1], row8[2], row9[0], row9[1], row9[2]]
+square8 = [row7[3], row7[4], row7[5], row8[3], row8[4], row8[5], row9[3], row9[4], row9[5]]
+square9 = [row7[6], row7[7], row7[8], row8[6], row8[7], row8[8], row9[6], row9[7], row9[8]]
+
+
+
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+
+
+row1 = [0 , 0 , 0 , 2 , 6 , 0 , 7 , 0 , 1]
+
+
+def row_solver(row):
+    solved_row = []
+    for i in row:
+        if i != 0:
+            solved_row.append(i)
+        elif i == 0:
+            nums_1_9 = list(range(0,10))
+            for num in nums_1_9:
+                if (num not in row) and (num not in solved_row) :
+                    solved_row.append(num)
+                    break
+                else:
+                    continue
+                
+    return solved_row
+            
+            
+print(row_solver(row1))
+
+"""
+Next define a row_column_solver, it might be best to define 
+
+The row_column_solver would be the row_solver with an additional if statement 
+that includes the column
+"""
