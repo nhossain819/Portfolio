@@ -111,10 +111,11 @@ def big_string(list_of_values):
 test_list = ['a' , 'b' , 'c']
 
 
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 """
-Write a Python program to print all even numbers from a given numbers list 
-in the same order and stop the printing if any numbers that come after 237 
-in the sequence.
+A function to return all even numbers from a list in the same order, stop the printing 
+if any numbers that come after 219 in the sequence.
 """
 numbers = [    
     386, 462, 47, 418, 907, 344, 236, 375, 823, 566, 597, 978, 328, 615, 953, 345, 
@@ -123,12 +124,12 @@ numbers = [
     958,743, 527
     ]
 
-def evens_until_237(numlist):
+def evens_until_219(numlist):
     new_list = []
     for i in list(numlist): 
         if i % 2 == 0:
             new_list.append(i)
-        elif i == 237:
+        elif i == 219:
             break
     return new_list
 
