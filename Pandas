@@ -13,7 +13,6 @@ characteristics of diamonds.
 0.23,"Ideal","E","SI2",61.5,55,326,3.95,3.98,2.43
 0.21,"Premium","E","SI1",59.8,61,326,3.89,3.84,2.31
 0.23,"Good","E","VS1",56.9,65,327,4.05,4.07,2.31
-0.29,"Premium","I","VS2",62.4,58,334,4.2,4.23,2.63
 ...
 0.7,"Very Good","D","SI1",62.8,60,2757,5.66,5.68,3.56
 0.86,"Premium","H","SI2",61,58,2757,6.15,6.12,3.74
@@ -140,28 +139,43 @@ faircut_meancarat = faircut.carat.mean()
 
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+The following lines:
+-Create a 'size' column calculated from the x, y, and z columns.
+-Create an 'Expensive' column based on the price column value.
+-Create a data frame based on size and whether or not the item is expensive.
+-Sort the values of the dataframe by price.
+"""
 
-
+#Create a calculated 'size' column.
 df['size'] = round((df.x * df.y * df.z) , 2)
 
-"""
-df.sort_values(by=['price'], inplace=True, ascending=False)
-print(df2.price.median())
-"""
+#Create a calculated 'Expensive' column.
 df['Expensive'] = df.price.apply(lambda x: 'Yes' if x > 2000 else 'No')
 
-
-#print(list(df.axes[1]))
-"""
+#Create a dataframe based on the 'Expensive' column.
 big_expensive = df[(df.size > 25) & (df.Expensive == 'Yes')]
-print(big_expensive.head())
-print(len(big_expensive))
-"""
+
+#Sort the dataframe by price.
+df.sort_values(by=['price'], inplace=True, ascending=False)
+
+
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
+"""
+The following lines:
+-Create a dataframe from the first 5 rows.
+-Export the dataframe as a CSV.
+-Import the exported CSV.
+"""
+#Create a dataframe from the first 5 rows.
 rows5 = df.iloc[:5]
-rows5.to_csv('/Users/Nayeem/Desktop/WORKING/rows5.csv', sep=',', index=False)
-df10 = pd.read_csv('/Users/Nayeem/Desktop/WORKING/rows5.csv')
 
-print(df10)
+#Export the dataframe as a CSV.
+rows5.to_csv('/Users/Nayeem/Desktop/WORKING/rows5.csv', sep=',', index=False)
+
+#Import the exported CSV.
+df2 = pd.read_csv('/Users/Nayeem/Desktop/WORKING/rows5.csv')
+
+
+
