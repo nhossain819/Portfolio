@@ -48,20 +48,25 @@ chalkboard2('I will not chew gum in class.' , 10)
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 """
 Odds or Evens
+The following functions determine if an input is an odd or even number.
+This function is also written as a lambda function.
 """
-
+#Written as a regular function.
 def odd_even(x):
     if x % 2 == 0:
         return "This number is even!"
     else:
         return "This number is odd!"
-    
+
+
+#Written as a lambda function.
 odd_even2 = lambda x: "This number is even!" if x % 2 == 0 else "This number is odd!"
 
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 """
 Count the number of 4s
+This function provides the number of 4s in a list of integers.
 """
 list_of_numbers = [1, 5, 8, 4, 8, 3, 6, 4, 7, 9, 4, 3]
 
@@ -71,13 +76,8 @@ count_of_4s = list_of_numbers.count(4)
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 """
-Write a Python program to get the n (non-negative integer) copies of the first 
-2 characters of a given string. Return the n copies of the whole string if the 
-length is less than 2.
-
-return the first 2 characters of a string n times
-return the whole string if the length is less than 2
-
+A function to get a number of copies of the first 2 characters of a given string. 
+If the length is less than 2, return the number copies of the whole string.
 """
 
 def two_char(phrase , num):
@@ -87,8 +87,10 @@ def two_char(phrase , num):
         return phrase * num
 
 
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 """
-Write a Python program to test whether a passed letter is a vowel or not.
+Vowels
+This function determines if a input letter is a vowel.
 """
 
 def vowel(letter):
@@ -99,8 +101,8 @@ def vowel(letter):
         return "This is not a vowel."
     
 """
- Write a Python program to concatenate all elements in a list into a 
- string and return it.
+List to String
+This function concatenates all elements of a list into a string.
 """
 
 def big_string(list_of_values):
