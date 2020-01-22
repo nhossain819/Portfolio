@@ -63,7 +63,7 @@ LEFT JOIN
 			GROUP BY dc.account_id_number
 			)
 		as subquery_C
-		on main_query.account_id_number = subquery_M.account_id_number
+		on main_query.account_id_number = subquery_C.account_id_number
 
 LEFT JOIN
 			(SELECT dc.account_id_number
@@ -85,4 +85,4 @@ LEFT JOIN
 			GROUP BY dc.account_id_number
 			)
 		as subquery_P
-		on main_query.account_id_number = subquery_E.account_id_number
+		on main_query.account_id_number = subquery_P.account_id_number
