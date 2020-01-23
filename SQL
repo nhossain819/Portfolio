@@ -10,10 +10,10 @@ The schema of the hypothetical company database available upon request.
 --XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 --TASK 1
 --Create a single table that contains:
---  The account_id_number and name of every active account in region 3 of Italy.
---  The numbers of cake and pie customers for each company account.
---  The count of active individuals listed for each company account.
---  The count of individuals who ordered at least one cake or pie between 7/12/2016 and 2/25/2018.
+--  	The account_id_number and name of every active account in region 3 of Italy.
+--  	The numbers of cake and pie customers for each company account.
+--  	The count of active individuals listed for each company account.
+--  	The count of individuals who ordered at least one cake or pie between 7/12/2016 and 2/25/2018.
 
 
 --XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -87,10 +87,6 @@ LEFT JOIN
 			)
 		as subquery_P
 		on main_query.account_id_number = subquery_P.account_id_number
-
-
-
-
 
 
 
@@ -278,7 +274,6 @@ ORDER BY aid_s1
 
 
 
-
 --XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 --TASK 3
 --Create a single table containing:
@@ -365,7 +360,7 @@ LEFT JOIN
 		on QUERY1.acc_id_number = QUERY3.acc_id_number
 
 LEFT JOIN
---QUERY4 shows the count of individuals who ordered atleast one pie between 7/1/2016 and 2/10/2017 by account.*/
+--QUERY4 shows the count of individuals who ordered atleast one pie between 7/1/2016 and 2/10/2017 by account.
 			(SELECT dc.acc_id_number
 					, count(distinct(di.individual_id)) as Number_of_Individuals_with_Pies_Delivered
 
@@ -395,9 +390,9 @@ LEFT JOIN
 
 		INNER JOIN dimension_individual as di
 			on ficd.individual_id = di.individual_id
-            and ficd.status = '2'
-			and (ficd.order_time >= '2017-12-01 00:00:00'
-				and ficd.delivery_time <= '2018-03-15 23:59:59')
+            		and ficd.status = '2'
+			and (ficd.delivery_time >= '2016-07-12 00:00:00'
+				and ficd.delivery_time <= '2018-02-25 23:59:59')
 
 		INNER JOIN dimension_company as dc
         				on di.acc_id=dc.id
@@ -418,9 +413,9 @@ LEFT JOIN
 
 			INNER JOIN dimension_individual as di
 				on fipd.individual_id = di.individual_id
-                and fipd.status = '2'
-				and (fipd.order_time >= '2017-08-01 00:00:00'
-					and fipd.delivery_time <= '2018-03-15 23:59:59')
+                	and fipd.status = '2'
+			and (ficd.delivery_time >= '2016-07-12 00:00:00'
+				and ficd.delivery_time <= '2018-02-25 23:59:59')
 
 			INNER JOIN dimension_company as dc
 				on di.acc_id=dc.id
@@ -495,7 +490,7 @@ LEFT JOIN
             on fipd.student_academic_year_id = di.id
             and fipd.status = 2
 			and (ficd.delivery_time >= '2018-02-10 00:00:00'
-            and ficd.delivery_time <= '2018-05-15 23:59:59')
+            	and ficd.delivery_time <= '2018-05-15 23:59:59')
 
         INNER JOIN dimension_company as dc
             on dc.id=di.acc_id
@@ -529,7 +524,7 @@ FROM
 		INNER JOIN fact_individual_pie_delivered as fipd
 			on ficd.order_year_id=fipd.order_year_id
             and (substring(ficd.order_year, 10, 4) < extract(year from ficd.delivery_time)
-            or substring(fipd.order_year, 10, 4) < extract(year from fipd.delivery_time))
+            	or substring(fipd.order_year, 10, 4) < extract(year from fipd.delivery_time))
 		INNER JOIN dimension_individual as di
             on ficd.order_year_id=di.id
 		INNER JOIN dimension_company as dc
