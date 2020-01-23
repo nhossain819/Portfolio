@@ -520,7 +520,8 @@ LEFT JOIN
 --QUERY FOR TASK 5
 SELECT *
 FROM
-/* QUERY1 The account ID number and company name for all accounts with individuals who had deliveries in a year later than their order year. */
+--QUERY1 The account ID number and company name for all accounts with individuals who had deliveries in a year later 
+--	than their order year. 
         (SELECT dc.acc_id_number
         	, dc.company_name
 
@@ -540,7 +541,7 @@ FROM
         ) as QUERY1
 
 LEFT JOIN
-/* QUERY2 Account type for each such company */
+--QUERY2 Account type for each such company.
 		(SELECT dc.acc_id_number
         	, dc.account_type
 			, dc.current_order_year
@@ -556,7 +557,7 @@ LEFT JOIN
 
 
 LEFT JOIN
-/* QUERY3 Number of individuals having deliveries in years later than their order year. (CAKE) */
+--QUERY3 Number of individuals having deliveries in years later than their order year. (CAKE)
         (SELECT dc.acc_id_number
             , count(distinct(ficd.individual_id)) as num_individuals_with_cake_delivered
 
@@ -575,7 +576,7 @@ LEFT JOIN
             on QUERY1.acc_id_number=QUERY3.acc_id_number
 
 LEFT JOIN
-/* QUERY4 Number of individuals having deliveries in years later than their order year. (PIE)*/
+--QUERY4 Number of individuals having deliveries in years later than their order year. (PIE)
         (SELECT dc.acc_id_number
             ,  count(distinct(fipd.individual_id)) as num_individuals_with_pie_delivered
 
@@ -594,7 +595,7 @@ LEFT JOIN
 		      on QUERY1.acc_id_number = QUERY4.acc_id_number
 
 LEFT JOIN
-/* QUERY5 Number of deliveries associated with previous rules. CAKE*/
+--QUERY5 Number of deliveries associated with previous rules. (CAKE)
         (SELECT dc.acc_id_number
             ,  count(ficd.id) as Num_Cakes_Delivered
 
@@ -613,7 +614,7 @@ LEFT JOIN
             on QUERY1.acc_id_number = QUERY5.acc_id_number
 
 LEFT JOIN
-/* QUERY6 Number of deliveries associated with previous rules. PIE*/
+--QUERY6 Number of deliveries associated with previous rules. (PIE)
         (SELECT dc.acc_id_number
             ,  count(fipd.id) as num_ela_asesmt
 
@@ -633,3 +634,7 @@ LEFT JOIN
 
 ORDER BY QUERY1.acc_id_number
 		, QUERY2.current_order_year
+		
+		
+--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+--THE END
