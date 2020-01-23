@@ -95,13 +95,16 @@ LEFT JOIN
 
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-TASK 2
+--TASK 2
 --Create a single table containing:
 --	The account ID number and Company Name of every active account in region 3 of Italy.
 --	The count of active individuals listed in the database by office size and account.
 --	The count of individuals who were delivered at least one cake or pie between 7/1/2016 and 2/10/2017 by account and office size.
 --	The average number of deliveries in the same time period per individual with at least one order in that time period, by pastry, company, and office size.
 
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+--QUERY FOR TASK 2
 
 SELECT aid_s1 as acc_id_number
 		, office_size as Office_Size
