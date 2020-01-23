@@ -8,43 +8,31 @@ This is the result of self-teaching as well as practice exercises found through 
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 """
-Fibonacci
-The function 'fib' interprets the input 'length' to return a fibonacci sequence of the given length.
+List Comparison
+The following function returns a list of colors from color_list_1 which are not present in color_list_2.
 """
 
-def fib(length):
-    fib_list = [1 , 1]
-    frame_list = list(range(length - 2))
-    if length <= 0:
-        return "Invalid Parameters"
-    elif length == 1:
-        return [1]
-    elif length == 2:
-        return fib_list
-    else:
-        for i in frame_list:
-            fib_list.append(fib_list[-1] + fib_list[-2])
-        return fib_list
+color_list_1 = set(["White", "Black", "Red"])
+color_list_2 = set(["Red", "Green"])
+
+def inlist1_notinlist2(list1 , list2):
+    new_list = []
+    for i in list1:
+        if i in list2:
+            continue
+        else:
+            new_list.append(i)
+    return new_list
+
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 """
-Chalkboard
-The following functions print a phrase a specified number of times. 
+Calculation
+The following function uses an input of base and height to return area of a triangle.
 """
 
-def chalkboard(phrase , num):
-    for i in list(range(num)):
-        print(phrase)
-    
-chalkboard('I will not chew gum in class.' , 5)
-
-def chalkboard2(phrase , num):
-    print phrase * num
-
-chalkboard2('I will not chew gum in class.' , 10)
-
-
-
+def tri_area(base , height):
+    return base * height * (1/2)
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 """
 Odds or Evens
@@ -65,6 +53,35 @@ odd_even2 = lambda x: "This number is even!" if x % 2 == 0 else "This number is 
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 """
+Distance Between Two Points
+The following function returns the distance between two graphical points.
+"""
+def distance(x1,x2,y1,y2):
+    answer = (y2 - y1) / (x2 - x1)
+    return answer
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+List Sum
+The following function returns the sum of a list.
+"""
+
+def full_sum(num):
+    framelist = list(range(num + 1))
+    return sum(framelist)
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+Hypotenuse
+The following function returns the hypotenuse of a triangle using the lengths of two sides.
+"""
+
+def hypotenuse(side_a , side_b):
+    return ((side_a ** 2) + (side_b ** 2)) ** (1/2)
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
 Count the number of 4s
 This function provides the number of 4s in a list of integers.
 """
@@ -76,7 +93,7 @@ count_of_4s = list_of_numbers.count(4)
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 """
-A function to get a number of copies of the first 2 characters of a given string. 
+A function to get a number of copies of the first 2 characters of a given string.
 If the length is less than 2, return the number copies of the whole string.
 """
 
@@ -99,7 +116,7 @@ def vowel(letter):
         return "This letter is a vowel."
     else:
         return "This is not a vowel."
-    
+
 """
 List to String
 This function concatenates all elements of a list into a string.
@@ -114,19 +131,19 @@ test_list = ['a' , 'b' , 'c']
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 """
-A function to return all even numbers from a list in the same order, stop the printing 
+A function to return all even numbers from a list in the same order, stop the printing
 if any numbers that come after 219 in the sequence.
 """
-numbers = [    
-    376, 442, 57, 438, 807, 354, 136, 365, 843, 576, 697, 948, 428, 685, 923, 395, 
-    299, 142, 728, 219, 978, 337, 432, 536, 829, 238, 766, 951, 636, 948, 677, 227, 
-    814, 57, 124, 54, 532, 27, 894, 892, 762, 543, 71, 369, 842, 841, 435, 745, 727, 
+numbers = [
+    376, 442, 57, 438, 807, 354, 136, 365, 843, 576, 697, 948, 428, 685, 923, 395,
+    299, 142, 728, 219, 978, 337, 432, 536, 829, 238, 766, 951, 636, 948, 677, 227,
+    814, 57, 124, 54, 532, 27, 894, 892, 762, 543, 71, 369, 842, 841, 435, 745, 727,
     952, 723, 537
     ]
 
 def evens_until_219(numlist):
     new_list = []
-    for i in list(numlist): 
+    for i in list(numlist):
         if i % 2 == 0:
             new_list.append(i)
         elif i == 219:
@@ -134,4 +151,3 @@ def evens_until_219(numlist):
     return new_list
 
 print(evens_until_219(numbers))
-        
