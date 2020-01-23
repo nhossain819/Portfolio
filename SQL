@@ -1,9 +1,9 @@
 DESCRIPTION:
 The purpose of this file is to show a sample of my SQL abilities.
-The following is a series of tasks and their associated queries.
 
 These queries are based on queries I wrote while in previous positions.
 These tasks and queries are based on a hypothetical company that delivers cakes and pies to individuals in offices internationally.
+Schema of hypothetical company database available upon request.
 
 
 
