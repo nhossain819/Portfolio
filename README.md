@@ -8,6 +8,6 @@ Python_Basics: Shows my grasp of basic Python concepts through a series of relat
 
 Python_Pandas: Shows my knowledge of row, column, and dataframe manipulation to achieve answers. (210 lines)
 
-SQL: Shows my advanced knowledge of SQL through a series of complex queries. (635 lines)
+SQL: Shows my advanced knowledge of SQL through a series of complex queries. (638 lines)
 
 Sudoku_Solver: This is an ongoing project I am currently working on to practice my Python skills. The goal of this program is to take in any sudoku puzzle and return its solution. (ongoing project)
