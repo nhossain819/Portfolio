@@ -1,41 +1,50 @@
 """
 DESCRIPTION:
-The following functions represent an intermediate knowledge Python.
+The following functions represent an advanced knowledge Python.
 Each function or group of functions is seperated by a single line comment of X's.
 Each function or group of functions begin with a multi-line comment describing the functions purpose.
 These functions are the result of self-teaching as well as practice exercises found through W3resource.
 """
 
 
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"""
+Fibonacci
+The function 'fib' interprets the input 'length' to return a fibonacci sequence of the given length.
+"""
+
+def fib(length):
+    fib_list = [1 , 1]
+    frame_list = list(range(length - 2))
+    if length <= 0:
+        return "Invalid Parameters"
+    elif length == 1:
+        return [1]
+    elif length == 2:
+        return fib_list
+    else:
+        for i in frame_list:
+            fib_list.append(fib_list[-1] + fib_list[-2])
+        return fib_list
 
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 """
-List Comparison
-The following function returns a list of colors from color_list_1 which are not present in color_list_2.
+Chalkboard
+The following functions print a phrase a specified number of times.
 """
 
-color_list_1 = set(["White", "Black", "Red"])
-color_list_2 = set(["Red", "Green"])
+def chalkboard(phrase , num):
+    for i in list(range(num)):
+        print(phrase)
 
-def inlist1_notinlist2(list1 , list2):
-    new_list = []
-    for i in list1:
-        if i in list2:
-            continue
-        else:
-            new_list.append(i)
-    return new_list
+chalkboard('I will not chew gum in class.' , 5)
 
+def chalkboard2(phrase , num):
+    print phrase * num
 
-#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-"""
-Calculation
-The following function uses an input of base and height to return area of a triangle.
-"""
+chalkboard2('I will not chew gum in class.' , 10)
 
-def tri_area(base , height):
-    return base * height * (1/2)
 
 
 
@@ -87,29 +96,14 @@ def lcm(integer1 , integer2):
     return min(common_multiples)
 
 
-       
-
-#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-"""
-Distance Between Two Points
-The following function returns the distance between two graphical points.
-"""
-def distance(x1,x2,y1,y2):
-    answer = (y2 - y1) / (x2 - x1)
-    return answer
 
 
 
 
-#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-"""
-List Sum
-The following function returns the sum of a list.
-"""
 
-def full_sum(num):
-    framelist = list(range(num + 1))
-    return sum(framelist)
+
+
+
 
 
 
@@ -124,13 +118,13 @@ def height_convert(feet , inches):
     total_inches = inches + feet_in_inches
     height_in_cm = total_inches * 2.54
     return "Height in cm is " + str(height_in_cm)
-    
+
 
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 """
 Distance Conversion
-The following function takes an input of distance in feet and returns a distance as 
+The following function takes an input of distance in feet and returns a distance as
 a string of miles, yards, feet, and inches.
 """
 
@@ -147,14 +141,7 @@ def imperial(distance_in_feet):
 
 
 
-#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-"""
-Hypotenuse
-The following function returns the hypotenuse of a triangle using the lengths of two sides.
-"""
 
-def hypotenuse(side_a , side_b):
-    return ((side_a ** 2) + (side_b ** 2)) ** (1/2)
 
 
 
@@ -239,7 +226,7 @@ from os import walk
 f = []
 for (dirpath, dirnames, filenames) in walk('/Users/Nayeem/Desktop/WORKING'):
         f.append(filenames)
-        
+
 searchlist = []
 
 for i1 in f:
@@ -247,4 +234,4 @@ for i1 in f:
         if i2 == 'testfile.csv':
             searchlist.append(i2)
 
-print(searchlist)      
+print(searchlist)
