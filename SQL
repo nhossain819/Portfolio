@@ -611,7 +611,7 @@ LEFT JOIN
 LEFT JOIN
 --QUERY6 Number of deliveries associated with previous rules. (PIE)
         (SELECT dc.acc_id_number
-            ,  count(fipd.id) as num_ela_asesmt
+            ,  count(fipd.id) as Num_Pies_Delivered
 
         FROM fact_individual_pie_delivered as fipd
 
