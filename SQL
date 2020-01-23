@@ -7,7 +7,7 @@ To respect confidentiality, the code below does not contain any database, table,
 
 These tasks and queries below involve a hypothetical company that delivers cakes and pies to individuals in offices internationally.
 
-The schema of the hypothetical company database available upon request.
+The schema of the hypothetical company database is available upon request.
 
 
 --XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
