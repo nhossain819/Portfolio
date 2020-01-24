@@ -97,16 +97,6 @@ def lcm(integer1 , integer2):
 
 
 
-
-
-
-
-
-
-
-
-
-
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 """
 Height Conversion
@@ -118,7 +108,6 @@ def height_convert(feet , inches):
     total_inches = inches + feet_in_inches
     height_in_cm = total_inches * 2.54
     return "Height in cm is " + str(height_in_cm)
-
 
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -138,10 +127,6 @@ def imperial(distance_in_feet):
     remaining_inches_after_feet = remaining_inches_after_yards % 12
     return "Distance is " + str(miles) + " miles " + str(yards) + " yards " + \
         str(feet) + " feet and " + str(round(remaining_inches_after_feet , 2)) + " inches"
-
-
-
-
 
 
 
@@ -195,7 +180,7 @@ def greaterthan_25(list_of_numbers):
 
 
 
-  #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 """
 Divisible by 15
 The following function takes an input list of numbers and returns a sublist of numbers divisible by 15.
@@ -213,6 +198,7 @@ def div_by_15(list1):
     return final_list
 
 #print(div_by_15(test_list))
+
 
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -235,3 +221,8 @@ for i1 in f:
             searchlist.append(i2)
 
 print(searchlist)
+
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#THE END
