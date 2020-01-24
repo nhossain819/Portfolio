@@ -1,4 +1,4 @@
-# NAYEEM HOSSAIN PORTFOLIO
+# Nayeem M. Hossain Portfolio
 The files in this repository are samples of my programming abilities in SQL and Python. These files show my skill development through both self-teaching and previous positions. I am constantly adding to and updating this repository with work representative of my abilities.
 
 # Contents
