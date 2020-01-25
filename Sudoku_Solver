@@ -8,6 +8,7 @@ The following program takes in a sudoku board in terms of its rows and returns a
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
+#Input the sudoku puzzle here using zeros instead of blanks.
 
 row1 = [0 , 0 , 0 , 2 , 6 , 0 , 7 , 0 , 1]
 row2 = [6 , 8 , 0 , 0 , 7 , 0 , 0 , 9 , 0]
@@ -18,6 +19,8 @@ row6 = [0 , 5 , 0 , 0 , 0 , 3 , 0 , 2 , 8]
 row7 = [0 , 0 , 9 , 3 , 0 , 0 , 0 , 7 , 4]
 row8 = [0 , 4 , 0 , 0 , 5 , 0 , 0 , 3 , 6]
 row9 = [7 , 0 , 3 , 0 , 1 , 8 , 0 , 0 , 0]
+
+#The function show_board prints the input sudoku puzzle.
 
 def show_board():
     print(row1)
@@ -31,7 +34,12 @@ def show_board():
     print(row9)
     
     
+#all_rows is a single list of all rows squentially.
+
 all_rows = list(row1 + row2 + row3 + row4 + row5 + row6 + row7 + row8 + row9)
+
+
+#The function 'columns' creates a list of lists containing all columns of the input sudoku puzzle sequentially.
 
 def columns(all_rows_list , column_number):
     column = []
@@ -46,6 +54,9 @@ def columns(all_rows_list , column_number):
     column.append(all_rows_list[column_number + (9 * 8) - 1])
     return column
     
+    
+#The variables column1-column9 contain the columns of the puzzle accordingly.    
+    
 column1 = columns(all_rows , 1)
 column2 = columns(all_rows , 2)
 column3 = columns(all_rows , 3)
@@ -55,7 +66,6 @@ column6 = columns(all_rows , 6)
 column7 = columns(all_rows , 7)
 column8 = columns(all_rows , 8)
 column9 = columns(all_rows , 9)
-
 
 
 
