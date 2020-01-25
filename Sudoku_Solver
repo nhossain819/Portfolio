@@ -103,11 +103,14 @@ square9 = [row7[6], row7[7], row7[8], row8[6], row8[7], row8[8], row9[6], row9[7
 
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#ANALYSIS
 
-
-
+#row1 is used here as a test row.
 row1 = [0 , 0 , 0 , 2 , 6 , 0 , 7 , 0 , 1]
 
+#row_solver provides a possible solution to an input row. 
+#Note that this fills in possible numbers from left to right sequentially.
+#The issue needed to be addressed is the possibility that the first blank is a nine. Either address this here or in the row_column_solver.
 
 def row_solver(row):
     solved_row = []
@@ -125,11 +128,10 @@ def row_solver(row):
                 
     return solved_row
             
-            
-print(row_solver(row1))
+
 
 """
-Next define a row_column_solver, it might be best to define 
+Next define a row_column_solver
 
 The row_column_solver would be the row_solver with an additional if statement 
 that includes the column
