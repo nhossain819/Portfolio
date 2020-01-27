@@ -11,7 +11,7 @@ Explanations and notes are written in Python pseudocode.
         then 1
    else 0
 """
---------------------------------------------------
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 #Multi-Step if/then logic based on two separate cell values.
 
@@ -24,7 +24,8 @@ Explanations and notes are written in Python pseudocode.
         else 0
     else 0
 """
---------------------------------------------------
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
 
 #Bin creation based on a cell value.
 
