@@ -1,0 +1,47 @@
+Excel Formulas
+
+Explanations and notes are written in Python pseudocode.
+
+#Basic if/then logic in Excel
+
+=IF(A5="Cake",1,0)
+ 
+"""
+   if A5 = "Cake" 
+        then 1
+   else 0
+"""
+--------------------------------------------------
+
+#Multi-Step if/then logic based on two separate cell values.
+
+=IF(B10=1,IF(LEFT(C10,5)="Pie",1,0),0)
+
+"""
+    if B10 = 1     
+        if left most 5 characters of C10 = "Pie"
+            then 1      
+        else 0
+    else 0
+"""
+--------------------------------------------------
+
+#Bin creation based of a cell value.
+
+=IF(OR(F4="A",F4="B",F4="C",F4="D",F4="E"), "Bin1", IF(OR(F4="F", F4="G"), "Bin2", IF(OR(F4="H",F4="I"), "Bin3", "Bin4")))
+
+""" 
+    if F4="A" or F4="B" or F4="C" or F4='D' or F4="E"
+ 
+        then "Bin1"
+ 
+    elif F4="E" or F4="F"
+ 
+        then "Bin2"
+ 
+    elif F4="G" or F4="H"
+ 
+        then "Bin3"
+ 
+    else "Bin4"
+"""
