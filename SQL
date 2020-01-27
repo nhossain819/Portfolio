@@ -252,9 +252,8 @@ LEFT JOIN
 
 	            	WHERE
 	            	    ficd.status = '2'
-	            	    and (ficd.order_time > '2017-08-01 00:00:00'
-	            	        and ficd.delivery_time < '2018-01-15 23:59:59')
-	            	    and ficd.profile like 'DI%'
+		    		and (ficd.order_time > '2016-07-01 00:00:00'
+		    		and ficd.delivery_time < '2017-02-10 23:59:59')
 
 	            	GROUP BY dc.acc_id_number
 	            	        , ficd.individual_id
