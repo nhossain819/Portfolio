@@ -26,7 +26,7 @@ Explanations and notes are written in Python pseudocode.
 """
 --------------------------------------------------
 
-#Bin creation based of a cell value.
+#Bin creation based on a cell value.
 
 =IF(OR(F4="A",F4="B",F4="C",F4="D",F4="E"), "Bin1", IF(OR(F4="F", F4="G"), "Bin2", IF(OR(F4="H",F4="I"), "Bin3", "Bin4")))
 
