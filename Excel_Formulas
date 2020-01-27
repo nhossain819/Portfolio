@@ -17,11 +17,11 @@ Explanations and notes are written in Python pseudocode.
 
 #Multi-Step if/then logic based on two separate cell values.
 
-=IF(B10=1,IF(LEFT(C10,5)="Pie",1,0),0)
+=IF(B10=1,IF(LEFT(C10,5)="New",1,0),0)
 
 """
     if B10 = 1     
-        if left most 5 characters of C10 = "Pie"
+        if left most 5 characters of C10 = "New"
             then 1      
         else 0
     else 0
