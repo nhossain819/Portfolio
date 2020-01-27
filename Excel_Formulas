@@ -2,6 +2,8 @@ Excel Formulas
 
 Explanations and notes are written in Python pseudocode.
 
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
 #Basic if/then logic in Excel
 
 =IF(A5="Cake",1,0)
