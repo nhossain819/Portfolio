@@ -24,10 +24,6 @@ create table heartdata2 as
 quit;
 
 
-proc print data=heartdata2 (firstobs=10 obs=20);
-run;
-
-
 ods excel file="/folders/myfolders/HeartStudy.xlsx" 
 options
 	(
