@@ -10,6 +10,8 @@ data heartdata;
 run;
 
 proc sql;
+create table heartdata2 as
+	(
 	select Status 
 		, avg(AgeCHDdiag) as AverageAgeCHDdiag
 		, AgeAtStart 
@@ -17,9 +19,11 @@ proc sql;
 		, avg(Weight) as AverageWeight
 	from heartdata
 	group by Status, AgeAtStart
-	order by Status, AgeAtStart;
+	)
+	order by Status, AgeAtStart
+	;
 quit;
 
 
-proc print data=heartdata (firstobs=10 obs=20);
+proc print data=heartdata2 (firstobs=10 obs=20);
 run;
