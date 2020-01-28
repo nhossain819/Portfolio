@@ -15,5 +15,5 @@ quit;
 
 
 
-proc print data=heartdata (obs=20);
+proc print data=heartdata (firstobs = 10 obs=20);
 run;
