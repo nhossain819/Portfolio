@@ -1,6 +1,8 @@
-/*This file is currently being updated*/
-
-/*The dataset used here is available in all SAS platforms.*/
+/*
+The purpose of this file is to show a sample of my SAS techniques and abilities.
+This file is currently being updated.
+The dataset used here is available in all SAS platforms.
+*/
 
 
 /*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
@@ -62,7 +64,7 @@ The following lines show usage of:
 
 
 %LET main_dataset = sashelp.heart;
-%LET output_destination = "/folders/myfolders/heartStudy2.xlsx";
+%LET output_destination = "/folders/myfolders/HeartStudy2.xlsx";
 
 
 %MACRO printexcel;
@@ -88,4 +90,7 @@ The following lines show usage of:
 
 %MEND printexcel;
 
+
 %printexcel
+
+
