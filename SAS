@@ -1,5 +1,7 @@
 /*This file is currently being updated*/
 
+/*The dataset used here is available in all SAS platforms.*/
+
 data heartdata;
 	set sashelp.heart
 		(rename=(DeathCause=CauseOfDeath)
@@ -8,12 +10,16 @@ data heartdata;
 run;
 
 proc sql;
-	select Status , CauseOfDeath , AgeCHDdiag , AgeAtStart , Height , Weight
+	select Status 
+		, avg(AgeCHDdiag) as AverageAgeCHDdiag
+		, AgeAtStart 
+		, avg(Height) as AverageHeight
+		, avg(Weight) as AverageWeight
 	from heartdata
-	order by AgeAtStart;
+	group by Status, AgeAtStart
+	order by Status, AgeAtStart;
 quit;
 
 
-
-proc print data=heartdata (firstobs = 10 obs=20);
+proc print data=heartdata (firstobs=10 obs=20);
 run;
