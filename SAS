@@ -1,7 +1,6 @@
 /*This file is currently being updated*/
 
 /*The dataset used here is available in all SAS platforms.*/
-
 data heartdata;
 	set sashelp.heart
 		(rename=(DeathCause=CauseOfDeath)
@@ -13,9 +12,9 @@ proc sql;
 create table heartdata2 as
 	(
 	select Status 
-		, avg(AgeCHDdiag) as AverageAgeCHDdiag
 		, AgeAtStart 
-		, avg(Height) as AverageHeight
+		, avg(AgeCHDdiag) as AverageAgeCHDdiag  
+		, avg(Height) as AverageHeight    
 		, avg(Weight) as AverageWeight
 	from heartdata
 	group by Status, AgeAtStart
@@ -27,3 +26,20 @@ quit;
 
 proc print data=heartdata2 (firstobs=10 obs=20);
 run;
+
+
+ods excel file="/folders/myfolders/HeartStudy.xlsx" 
+options
+	(
+	start_at="3,3"
+	frozen_headers="5"
+	frozen_rowheaders="3"
+	sheet_name="Heart_Study"
+	embedded_titles="yes"
+	);
+ 
+proc print data=heartdata2; 
+title "Average Height, Weight, and AgeCHDdiag by Status and Age";
+run;
+ 
+ods excel close;
