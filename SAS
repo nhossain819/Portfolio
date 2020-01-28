@@ -1,12 +1,25 @@
 /*This file is currently being updated*/
 
 /*The dataset used here is available in all SAS platforms.*/
+
+
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+/*
+The following lines show usage of:
+	-data step
+	-proc sql
+	-proc print
+	-ods
+*/
+
+
 data heartdata;
 	set sashelp.heart
 		(rename=(DeathCause=CauseOfDeath)
 			keep=Status DeathCause AgeCHDdiag AgeAtStart Height Weight);
 	if AgeAtStart > 30 and AgeAtStart < 50;
 run;
+
 
 proc sql;
 create table heartdata2 as
@@ -39,3 +52,40 @@ title "Average Height, Weight, and AgeCHDdiag by Status and Age";
 run;
  
 ods excel close;
+
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+/*
+The following lines show usage of:
+	-global macros
+	-local macros
+*/
+
+
+%LET main_dataset = sashelp.heart;
+%LET output_destination = "/folders/myfolders/heartStudy2.xlsx";
+
+
+%MACRO printexcel;
+	data datasubset;
+		set &main_dataset;
+			if AgeAtStart < 35;
+	run;
+
+	ods excel file=&output_destination
+	options
+		(
+		start_at="3,3"
+		frozen_headers="5"
+		frozen_rowheaders="3"
+		sheet_name= &main_dataset
+		embedded_titles="yes"
+		);
+
+	proc print data=datasubset;
+	run;
+
+	ods excel close;
+
+%MEND printexcel;
+
+%printexcel
