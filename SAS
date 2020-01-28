@@ -1,0 +1,19 @@
+/*This file is currently being updated*/
+
+data heartdata;
+	set sashelp.heart
+		(rename=(DeathCause=CauseOfDeath)
+			keep=Status DeathCause AgeCHDdiag AgeAtStart Height Weight);
+	if AgeAtStart > 30 and AgeAtStart < 50;
+run;
+
+proc sql;
+	select Status , CauseOfDeath , AgeCHDdiag , AgeAtStart , Height , Weight
+	from heartdata
+	order by AgeAtStart;
+quit;
+
+
+
+proc print data=heartdata (obs=20);
+run;
