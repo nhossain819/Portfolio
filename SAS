@@ -70,7 +70,6 @@ The following lines show usage of:
 %MACRO printexcel;
 	data datasubset;
 		set &main_dataset;
-			if AgeAtStart < 35;
 	run;
 
 	ods excel file=&output_destination
