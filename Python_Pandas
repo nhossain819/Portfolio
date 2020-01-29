@@ -206,11 +206,12 @@ rows5.to_csv('/Users/Nayeem/Desktop/WORKING/rows5.csv', sep=',', index=False)
 #Import the exported CSV.
 df2 = pd.read_csv('/Users/Nayeem/Desktop/WORKING/rows5.csv')
 
-
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 """
 DATA CLEANING
 (Currently being edited and updated)
+NOTE: The data used in this project is different from the data used in all previous lines.
 The datasets used in this project are made up of 10 csv files, named 'states0.csv' to 'states9.csv' respectively.
 Each csv file contains 5 rows of data with the columns:
     'State', 'TotalPop', 'Hispanic', 'White', 'Black', 'Native', 'Asian', 'Pacific', 'Income', 'GenderPop'
