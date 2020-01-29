@@ -225,11 +225,12 @@ Import all necessary modules
     -matplotlib.pyplot to generate scatterplots
     -glob for combining multiple datasets
 """
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as pyplot
 import glob
+
+
 
 """
 CONSILIDATE ALL CSV FILES TO CREATE ONE DATAFRAME
@@ -248,10 +249,11 @@ for filename in files:
 us_census = pd.concat(df_list)
 
 
+
+
 """
 DATA CLEANING
 """
-
 #Replace all '$' from the values in the 'Income' column with nothing.
 #regex refers to regular expression which is how the \$ is written.
 us_census.Income = us_census['Income'].replace('[\$]', '', regex=True)
@@ -279,17 +281,11 @@ for column in columnlist:
 
 us_census = us_census.fillna(value={"FemalePop":us_census.TotalPop - us_census.MalePop})
 
-#print(us_census.FemalePop.head())
 
-#print(us_census.duplicated())
 
 us_census = us_census.drop_duplicates()
 
 pyplot.scatter(us_census.FemalePop, us_census.Income)
 pyplot.show()
 
-print(us_census.columns)
-
-pyplot.scatter(us_census.Hispanic, us_census.TotalPop)
-pyplot.show()
 
