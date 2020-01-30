@@ -1,7 +1,7 @@
 DESCRIPTION:
 The purpose of this file is to show a sample of my SQL techniques and abilities.
 
-These queries are based on queries I wrote while in previous positions. 
+These queries are based on queries I wrote while in previous positions.
 
 To respect confidentiality, the code below does not contain any database, table, or column name used in any of my previous positions.
 
@@ -83,8 +83,8 @@ LEFT JOIN
 
 			WHERE
 				fipd.status = '2'
-				and (fipd.delivery_time > '2017-08-01 00:00:00'
-					and fipd.delivery_time < '2018-01-15 23:59:59')
+				and (fipd.delivery_time > '2016-07-12 00:00:00'
+					and fipd.delivery_time < '2018-02-25 23:59:59')
 
 			GROUP BY dc.account_id_number
 			)
@@ -99,7 +99,7 @@ LEFT JOIN
 --	The account ID number and Company Name of every active account in region 3 of Italy.
 --	The count of active individuals listed in the database by office size and account.
 --	The count of individuals who were delivered at least one cake or pie between 7/1/2016 and 2/10/2017 by account and office size.
---	The average number of deliveries in the same time period per individual with at least one order in that time period, by 
+--	The average number of deliveries in the same time period per individual with at least one order in that time period, by
 --		pastry, company, and office size.
 
 
@@ -227,7 +227,7 @@ LEFT JOIN
 LEFT JOIN
 --SECTION THREE
 --This section address:
---	The average number of deliveries in the same time period per individual with at least one order in that time period, by 
+--	The average number of deliveries in the same time period per individual with at least one order in that time period, by
 --		pastry, company, and office size.
 
 	       (
@@ -517,8 +517,8 @@ LEFT JOIN
 --QUERY FOR TASK 5
 SELECT *
 FROM
---QUERY1 The account ID number and company name for all accounts with individuals who had deliveries in a year later 
---	than their order year. 
+--QUERY1 The account ID number and company name for all accounts with individuals who had deliveries in a year later
+--	than their order year.
         (SELECT dc.acc_id_number
         	, dc.company_name
 
@@ -631,7 +631,7 @@ LEFT JOIN
 
 ORDER BY QUERY1.acc_id_number
 		, QUERY2.current_order_year
-		
-		
+
+
 --XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 --THE END
