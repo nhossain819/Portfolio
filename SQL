@@ -212,8 +212,8 @@ LEFT JOIN
 
 		    		WHERE
 		    		fipd.status = '2'
-		    		and (ficd.order_time > '2016-07-01 00:00:00'
-		    		and ficd.delivery_time < '2017-02-10 23:59:59')
+		    		and (fipd.order_time > '2016-07-01 00:00:00'
+		    		and fipd.delivery_time < '2017-02-10 23:59:59')
 
 
 		    		GROUP BY dc.acc_id_number
@@ -227,8 +227,8 @@ LEFT JOIN
 LEFT JOIN
 --SECTION THREE
 --This section address:
---	The average number of deliveries in the same time period per individual with at least one order in that time period, by
---		pastry, company, and office size.
+--	The average number of deliveries in the same time period per individual with at least one cake order in that time period, by
+--		company and office size.
 
 	       (
 		    	SELECT acc_id_number as aid_s3
@@ -371,8 +371,8 @@ LEFT JOIN
 			INNER JOIN dimension_individual as di
 				on fipd.individual_id = di.individual_id
                 and fipd.status = '2'
-				and (ficd.order_time >= '2016-07-01 00:00:00'
-					and ficd.delivery_time <= '2017-02-10 23:59:59')
+				and (fipd.order_time >= '2016-07-01 00:00:00'
+					and fipd.delivery_time <= '2017-02-10 23:59:59')
 
 			INNER JOIN dimension_company as dc
 				on di.acc_id=dc.id
@@ -416,8 +416,8 @@ LEFT JOIN
 			INNER JOIN dimension_individual as di
 				on fipd.individual_id = di.individual_id
                 	and fipd.status = '2'
-			and (ficd.delivery_time >= '2016-07-12 00:00:00'
-				and ficd.delivery_time <= '2018-02-25 23:59:59')
+			and (fipd.delivery_time >= '2016-07-12 00:00:00'
+				and fipd.delivery_time <= '2018-02-25 23:59:59')
 
 			INNER JOIN dimension_company as dc
 				on di.acc_id=dc.id
@@ -491,8 +491,8 @@ LEFT JOIN
         INNER JOIN dimension_individual as di
             on fipd.order_year_id = di.id
             and fipd.status = 2
-			and (ficd.delivery_time >= '2018-02-10 00:00:00'
-            	and ficd.delivery_time <= '2018-05-15 23:59:59')
+			and (fipd.delivery_time >= '2018-02-10 00:00:00'
+            	and fipd.delivery_time <= '2018-05-15 23:59:59')
 
         INNER JOIN dimension_company as dc
             on dc.id=di.acc_id
