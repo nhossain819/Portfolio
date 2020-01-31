@@ -91,6 +91,15 @@ us_census.MalePop = pd.to_numeric(us_census.MalePop)
 us_census = us_census.fillna(value={"FemalePop":us_census.TotalPop - us_census.MalePop})
 
 
+#   The columns 'Hispanic' and 'White' go through similar cleaning as the FemalePop and MalePop columns.
+us_census.Hispanic = us_census['Hispanic'].replace('[%]', '', regex=True)
+us_census.Hispanic = pd.to_numeric(us_census.Hispanic)
+us_census.White = us_census['White'].replace('[%]', '', regex=True)
+us_census.White = pd.to_numeric(us_census.White)
+
+
+
+
 #   The following line removes duplicate observations from the us_census dataframe.
 us_census = us_census.drop_duplicates()
 
