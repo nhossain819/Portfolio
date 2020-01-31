@@ -111,7 +111,7 @@ SAMPLE DATASET CREDIT: The dataset used here is a sample dataset found on W3reso
 originating from https://github.com/mwaskom/seaborn-data . The sample dataset involves the
 characteristics of diamonds.
 
-#SAMPLE ROWS FROM DATASET
+SAMPLE ROWS FROM DATASET
 "carat","cut","color","clarity","depth","table","price","x","y","z"
 0.23,"Ideal","E","SI2",61.5,55,326,3.95,3.98,2.43
 0.21,"Premium","E","SI1",59.8,61,326,3.89,3.84,2.31
@@ -131,16 +131,16 @@ The following lines of code:
 -Print the first 5 rows of the dataframe.
 -Print basic information about the dataframe.
 """
-#Import pandas
+#   Import pandas
 import pandas as pd
 
-#Create a dataframe
+#   Create a dataframe
 df = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/diamonds.csv')
 
-#Print the first 5 rows.
+#   Print the first 5 rows.
 print(df.head(5))
 
-#Print information about the data frame.
+#   Print information about the data frame.
 print(df.info())
 
 
@@ -152,14 +152,14 @@ The following lines:
 -Selects specific rows and columns
 -Finds the numbers of rows and columns
 """
-#Select rows 50 to 75.
+#   Select rows 50 to 75.
 rows_50_to_75 = df.iloc[50:76]
 
-#Select specific rows and columns.
+#   Select specific rows and columns.
 carat_cut = df[['carat' , 'cut']]
 carat_cut_rows_5_10_15 = carat_cut.iloc[[5, 10, 15]]
 
-#Find the number of columns and rows.
+#   Find the number of columns and rows.
 number_of_columns = len(df.axes[1])
 number_of_rows = len(df.axes[0])
 
@@ -170,13 +170,13 @@ number_of_rows = len(df.axes[0])
 The following lines:
 -Creates a subsets of data based on row value.
 """
-#Create a subset of data with the best cut of diamond.
+#   Create a subset of data with the best cut of diamond.
 best_cut = df[df.cut == 'Ideal']
 
-#Produce a subset of data with null clarity values.
+#   Produce a subset of data with null clarity values.
 missing_clarity = df[df['clarity'].isnull()]
 
-#A subset of data with carat values between 0.25 and 0.30.
+#   A subset of data with carat values between 0.25 and 0.30.
 carat_between25and30 = df[(df.carat > 0.25) & (df.carat <= 0.3)]
 
 
@@ -207,22 +207,22 @@ The following lines:
 -Sort the dataframe by price.
 -Remove rows of index 7 and 10 from the dataframe.
 """
-#Create a dataframe based on color and size.
+#   Create a dataframe based on color and size.
 color_size = df[['color' , 'size']]
 
-#Calculate the average size by color.
+#   Calculate the average size by color.
 mean_size_by_color = color_size.groupby(['color']).mean()
 
-#Create a dataframe based on color and price.
+#   Create a dataframe based on color and price.
 color_price = df[['color' , 'price']]
 
-#Calculate the total revenue of each color.
+#   Calculate the total revenue of each color.
 sum_price_by_color = color_price.groupby(['color']).sum()
 
-#Calculate the total revenue of each color.
+#   Calculate the total revenue of each color.
 sum_price_by_color.sort_values(by=['price'], inplace=True, ascending=False)
 
-#Remove rows of index 7 and 10 from the dataframe.
+#   Remove rows of index 7 and 10 from the dataframe.
 drop_test_rows_5_15 = rows_5_15.drop(df.index[[7,10]])
 
 
@@ -238,13 +238,13 @@ The following lines:
 """
 
 
-#Average carat of each cut style using a groupby.
+#   Average carat of each cut style using a groupby.
 carat_cut = df[['carat' , 'cut']]
 mean_carat_by_cut_type = carat_cut.groupby(['cut']).mean()
 
 
 
-#Average carat of each cut style using a for loop.
+#   Average carat of each cut style using a for loop.
 list_of_all_cuts = list(pd.unique(df.cut))
 
 for cut_type in list_of_all_cuts:
@@ -254,7 +254,7 @@ for cut_type in list_of_all_cuts:
 
 
 
-#Average carat of each cut style using data subsets.
+#   Average carat of each cut style using data subsets.
 all_cuts = pd.unique(df.cut)
 
 idealcut = df[df.cut == 'Ideal']
@@ -279,16 +279,16 @@ The following lines:
 -Sort the values of the dataframe by price.
 """
 
-#Create a calculated 'size' column.
+#   Create a calculated 'size' column.
 df['size'] = round((df.x * df.y * df.z) , 2)
 
-#Create a calculated 'Expensive' column.
+#   Create a calculated 'Expensive' column.
 df['Expensive'] = df.price.apply(lambda x: 'Yes' if x > 2000 else 'No')
 
-#Create a dataframe based on the 'Expensive' column.
+#   Create a dataframe based on the 'Expensive' column.
 big_expensive = df[(df.size > 25) & (df.Expensive == 'Yes')]
 
-#Sort the dataframe by price.
+#   Sort the dataframe by price.
 df.sort_values(by=['price'], inplace=True, ascending=False)
 
 
@@ -300,11 +300,11 @@ The following lines:
 -Export the dataframe as a CSV.
 -Import the exported CSV.
 """
-#Create a dataframe from the first 5 rows.
+#   Create a dataframe from the first 5 rows.
 rows5 = df.iloc[:5]
 
-#Export the dataframe as a CSV.
+#   Export the dataframe as a CSV.
 rows5.to_csv('/Users/Nayeem/Desktop/WORKING/rows5.csv', sep=',', index=False)
 
-#Import the exported CSV.
+#   Import the exported CSV.
 df2 = pd.read_csv('/Users/Nayeem/Desktop/WORKING/rows5.csv')
