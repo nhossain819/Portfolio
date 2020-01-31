@@ -6,15 +6,14 @@ These are the result of self-teaching as well as practice exercises found throug
 """
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+PROJECT 1 DATA CLEANING
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-DATA CLEANING
+"""
 (Currently being edited and updated)
-NOTE: The data used in this project is different from the data used in all previous lines.
-The datasets used in this project are made up of 10 csv files, named 'states0.csv' to 'states9.csv' respectively.
-Each csv file contains 5 rows of data with the columns:
+-The datasets used in this project are made up of 10 csv files, named 'states0.csv' to 'states9.csv' respectively.
+-Each csv file contains 5 rows of data with the columns:
     'State', 'TotalPop', 'Hispanic', 'White', 'Black', 'Native', 'Asian', 'Pacific', 'Income', 'GenderPop'
-All files used require cleaning for missing values and inappropriate data types.
+-All files used require cleaning for missing values and inappropriate data types.
 
 """
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -32,6 +31,8 @@ import glob
 
 
 
+
+
 """
 CONSILIDATE ALL CSV FILES TO CREATE ONE DATAFRAME
 'files' uses glob to create a list of all csv files that have the names similar to states
@@ -39,14 +40,16 @@ The wildcard * is used because all the csv files are states0.csv, states1.csv, .
 """
 files = glob.glob("states*.csv")
 
-#df_list is a list of all csv files from files (created using the for loop thorugh files)
+#   df_list is a list of all csv files from files (created using the for loop thorugh files)
 df_list = []
 for filename in files:
   data = pd.read_csv(filename)
   df_list.append(data)
 
-#us_census is the final dataframe which is df_list concatenated.
+#   us_census is the final dataframe which is df_list concatenated.
 us_census = pd.concat(df_list)
+
+
 
 
 
@@ -54,49 +57,58 @@ us_census = pd.concat(df_list)
 """
 DATA CLEANING
 """
-#Replace all '$' from the values in the 'Income' column with nothing.
-#regex refers to regular expression which is how the \$ is written.
+#   Replace all '$' from the values in the 'Income' column with nothing. Regex refers to regular expression(\$)
 us_census.Income = us_census['Income'].replace('[\$]', '', regex=True)
 
 
+#   splitlist is made up of the strings of the GenderPop column 'split' at the character '_' .
+#   sample of an observation in GenderPop: 2964003M_3081445F
+#   The observations of GenderPop are the datatype string.
 splitlist = us_census.GenderPop.str.split('_')
 
+
+#   MalePop is created as a new column in us_census. The observations of MalePop are the first
+#       observations of splitlist.
 us_census['MalePop']= splitlist.str.get(0)
+
+#   The following line replaces the 'M's in the observations of the column MalePop with nothing.
 us_census.MalePop = us_census['MalePop'].replace('[M]', '', regex=True)
 
+
+#   The column FemalePop is created and edited in the same format as the column MalePop.
 us_census['FemalePop'] = splitlist.str.get(1)
 us_census.FemalePop = us_census['FemalePop'].replace('[F]', '', regex=True)
 
+
+#   The columns FemalePop, TotalPop, and MalePop are converted into numeric datatypes
 us_census.FemalePop = pd.to_numeric(us_census.FemalePop)
 us_census.TotalPop = pd.to_numeric(us_census.TotalPop)
 us_census.MalePop = pd.to_numeric(us_census.MalePop)
 
-columnlist = us_census.columns
 
-for column in columnlist:
-    if column == 'State':
-        continue
-    else:
-        us_census.column = pd.to_numeric(us_census.column)
-
+#   The FemalePop column contains missing observations. The values in this column can be
+#       calculated from the values of the TotalPop and MalePop columns.
 us_census = us_census.fillna(value={"FemalePop":us_census.TotalPop - us_census.MalePop})
 
 
-
+#   The following line removes duplicate observations from the us_census dataframe.
 us_census = us_census.drop_duplicates()
 
+
+#   Creates and displays a scatterplot of FemalePop vs. Income
 pyplot.scatter(us_census.FemalePop, us_census.Income)
 pyplot.show()
 
 
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+PROJECT 2 DATA ANALYSIS
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
+"""
 The following lines analyze a sample dataset.
 
-SAMPLE DATASET CREDIT: The dataset used here is a sample dataset found on W3resource and 
-originating from https://github.com/mwaskom/seaborn-data . The sample dataset involves the 
+SAMPLE DATASET CREDIT: The dataset used here is a sample dataset found on W3resource and
+originating from https://github.com/mwaskom/seaborn-data . The sample dataset involves the
 characteristics of diamonds.
 
 #SAMPLE ROWS FROM DATASET
@@ -219,7 +231,7 @@ drop_test_rows_5_15 = rows_5_15.drop(df.index[[7,10]])
 """
 The following lines:
 -Show how to find the average carat of each cut style.
-    -This concept is coded in three different ways using three different methods: 
+    -This concept is coded in three different ways using three different methods:
         -groupby
         -for loop
         -creating data subsets.
@@ -296,7 +308,3 @@ rows5.to_csv('/Users/Nayeem/Desktop/WORKING/rows5.csv', sep=',', index=False)
 
 #Import the exported CSV.
 df2 = pd.read_csv('/Users/Nayeem/Desktop/WORKING/rows5.csv')
-
-
-
-
