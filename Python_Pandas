@@ -67,32 +67,35 @@ us_census.Income = us_census['Income'].replace('[\$]', '', regex=True)
 splitlist = us_census.GenderPop.str.split('_')
 
 
-#   MalePop is created as a new column in us_census. The observations of MalePop are the first observations of splitlist.
+#   MalePop is created as a new column in us_census. The observations of MalePop are the first
+#       observations of splitlist.
 us_census['MalePop']= splitlist.str.get(0)
-#   The column MalePop
+
+#   The following line replaces the 'M's in the observations of the column MalePop with nothing.
 us_census.MalePop = us_census['MalePop'].replace('[M]', '', regex=True)
 
+
+#   The column FemalePop is created and edited in the same format as the column MalePop.
 us_census['FemalePop'] = splitlist.str.get(1)
 us_census.FemalePop = us_census['FemalePop'].replace('[F]', '', regex=True)
 
+
+#   The columns FemalePop, TotalPop, and MalePop are converted into numeric datatypes
 us_census.FemalePop = pd.to_numeric(us_census.FemalePop)
 us_census.TotalPop = pd.to_numeric(us_census.TotalPop)
 us_census.MalePop = pd.to_numeric(us_census.MalePop)
 
-columnlist = us_census.columns
 
-for column in columnlist:
-    if column == 'State':
-        continue
-    else:
-        us_census.column = pd.to_numeric(us_census.column)
-
+#   The FemalePop column contains missing observations. The values in this column can be
+#       calculated from the values of the TotalPop and MalePop columns.
 us_census = us_census.fillna(value={"FemalePop":us_census.TotalPop - us_census.MalePop})
 
 
-
+#   The following line removes duplicate observations from the us_census dataframe.
 us_census = us_census.drop_duplicates()
 
+
+#   Creates and displays a scatterplot of FemalePop vs. Income
 pyplot.scatter(us_census.FemalePop, us_census.Income)
 pyplot.show()
 
