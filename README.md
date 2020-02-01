@@ -8,7 +8,7 @@ Python_Advanced: Shows my more advanced Python skills through a series of comple
 
 Python_Basics: Shows my grasp of basic Python concepts through a series of relatively simple functions.
 
-Python_Pandas: Shows my knowledge of row, column, and dataframe manipulation to achieve answers.
+Python_Pandas: Shows my knowledge of row, column, and dataframe cleaning and manipulation to achieve answers.
 
 SAS: Shows my use of various SAS techniques.
 
