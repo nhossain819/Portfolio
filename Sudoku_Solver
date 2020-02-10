@@ -1,4 +1,4 @@
-  
+
 """
 DESCRIPTION:
 1/22/20 ONGOING PROJECT
@@ -33,8 +33,8 @@ def show_board():
     print(row7)
     print(row8)
     print(row9)
-    
-    
+
+
 #all_rows is a single list of all rows squentially.
 
 all_rows = list(row1 + row2 + row3 + row4 + row5 + row6 + row7 + row8 + row9)
@@ -54,10 +54,10 @@ def columns(all_rows_list , column_number):
     column.append(all_rows_list[column_number + (9 * 7) - 1])
     column.append(all_rows_list[column_number + (9 * 8) - 1])
     return column
-    
-    
-#The variables column1-column9 contain the columns of the puzzle accordingly.    
-    
+
+
+#The variables column1-column9 contain the columns of the puzzle accordingly.
+
 column1 = columns(all_rows , 1)
 column2 = columns(all_rows , 2)
 column3 = columns(all_rows , 3)
@@ -71,31 +71,31 @@ column9 = columns(all_rows , 9)
 
 #The variables square1-square9 contain the three-by-three- squares of the puzzle.
 
-#Square1: top row, left 
+#Square1: top row, left
 square1 = [row1[0], row1[1], row1[2], row2[0], row2[1], row2[2], row3[0], row3[1], row3[2]]
 
-#Square2: top row, middle 
+#Square2: top row, middle
 square2 = [row1[3], row1[4], row1[5], row2[3], row2[4], row2[5], row3[3], row3[4], row3[5]]
 
-#Square3: top row, right 
+#Square3: top row, right
 square3 = [row1[6], row1[7], row1[8], row2[6], row2[7], row2[8], row3[6], row3[7], row3[8]]
 
-#Square4: middle row, left 
+#Square4: middle row, left
 square4 = [row4[0], row4[1], row4[2], row5[0], row5[1], row5[2], row6[0], row6[1], row6[2]]
 
-#Square5: middle row, middle 
+#Square5: middle row, middle
 square5 = [row4[3], row4[4], row4[5], row5[3], row5[4], row5[5], row6[3], row6[4], row6[5]]
 
-#Square6: middle row, right 
+#Square6: middle row, right
 square6 = [row4[6], row4[7], row4[8], row5[6], row5[7], row5[8], row6[6], row6[7], row6[8]]
 
-#Square7: bottom row, left 
+#Square7: bottom row, left
 square7 = [row7[0], row7[1], row7[2], row8[0], row8[1], row8[2], row9[0], row9[1], row9[2]]
 
-#Square8: bottom row, middle 
+#Square8: bottom row, middle
 square8 = [row7[3], row7[4], row7[5], row8[3], row8[4], row8[5], row9[3], row9[4], row9[5]]
 
-#Square9: bottom row, right 
+#Square9: bottom row, right
 square9 = [row7[6], row7[7], row7[8], row8[6], row8[7], row8[8], row9[6], row9[7], row9[8]]
 
 
@@ -105,34 +105,73 @@ square9 = [row7[6], row7[7], row7[8], row8[6], row8[7], row8[8], row9[6], row9[7
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 #ANALYSIS
 
-#row1 is used here as a test row.
-row1 = [0 , 0 , 0 , 2 , 6 , 0 , 7 , 0 , 1]
+#The function 'possible_values_by_row_column_square' provides all possible values for a single box based on its row, column, and square.
 
-#row_solver provides a possible solution to an input row. 
-#Note that this fills in possible numbers from left to right sequentially.
-#The issue needed to be addressed is the possibility that the first blank is a nine. Either address this here or in the row_column_solver.
+def possible_values_by_row_column_square(row, column, square):
 
-def row_solver(row):
-    solved_row = []
-    for i in row:
-        if i != 0:
-            solved_row.append(i)
-        elif i == 0:
-            nums_1_9 = list(range(0,10))
-            for num in nums_1_9:
-                if (num not in row) and (num not in solved_row) :
-                    solved_row.append(num)
-                    break
-                else:
-                    continue
-                
-    return solved_row
-            
+    row_value_list = []
+    for row_element in row:
+        if row_element == 0:
+            continue
+        else:
+            row_value_list.append(row_element)
+
+    row_framelist = list(range(1,10))
+    row_possible_value_list = []
+    for element in row_framelist:
+        if element in row_value_list:
+            continue
+        else:
+            row_possible_value_list.append(element)
 
 
-"""
-Next define a row_column_solver
 
-The row_column_solver would be the row_solver with an additional if statement 
-that includes the column
-"""
+
+    column_value_list = []
+    for column_element in column:
+        if column_element == 0:
+            continue
+        else:
+            column_value_list.append(column_element)
+
+    column_framelist = list(range(1,10))
+    column_possible_value_list = []
+    for element in column_framelist:
+        if element in column_value_list:
+            continue
+        else:
+            column_possible_value_list.append(element)
+
+
+
+
+    square_value_list = []
+    for square_element in square:
+        if square_element == 0:
+            continue
+        else:
+            square_value_list.append(square_element)
+
+    square_framelist = list(range(1,10))
+    square_possible_value_list = []
+    for element in square_framelist:
+        if element in square_value_list:
+            continue
+        else:
+            square_possible_value_list.append(element)
+
+
+
+
+
+    final_framelist = list(range(1,10))
+    final_possible_value_list = []
+    for element in final_framelist:
+        if element in row_possible_value_list and element in column_possible_value_list and element in square_possible_value_list:
+            final_possible_value_list.append(element)
+        else:
+            continue
+    return final_possible_value_list
+
+
+print(possible_values_by_row_column_square(row1, column1, square1))
