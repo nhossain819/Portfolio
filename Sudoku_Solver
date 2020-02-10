@@ -125,8 +125,6 @@ def possible_values_by_row_column_square(row, column, square):
             row_possible_value_list.append(element)
 
 
-
-
     column_value_list = []
     for column_element in column:
         if column_element == 0:
@@ -143,8 +141,6 @@ def possible_values_by_row_column_square(row, column, square):
             column_possible_value_list.append(element)
 
 
-
-
     square_value_list = []
     for square_element in square:
         if square_element == 0:
@@ -159,9 +155,6 @@ def possible_values_by_row_column_square(row, column, square):
             continue
         else:
             square_possible_value_list.append(element)
-
-
-
 
 
     final_framelist = list(range(1,10))
