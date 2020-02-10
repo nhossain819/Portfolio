@@ -1,7 +1,7 @@
 
 """
 DESCRIPTION:
-1/22/20 ONGOING PROJECT
+2/11/20 ONGOING PROJECT
 
 The following program takes in a sudoku board in terms of its rows and returns a completed sudoku puzzle.
 """
