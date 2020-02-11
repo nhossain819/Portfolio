@@ -369,9 +369,6 @@ def sudoku_solver(row_1, row_2, row_3, row_4, row_5, row_6, row_7, row_8, row_9)
             if (row9[i] == 0) and (len(row9_possible_values[i]) == 1):
                 row9[i] = row9_possible_values[i][0]
 
-    print('x')
-    show_board()
-
     fill_row1_firstpass()
     fill_row2_firstpass()
     fill_row3_firstpass()
