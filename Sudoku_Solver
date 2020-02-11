@@ -89,14 +89,10 @@ def sudoku_solver(row_1, row_2, row_3, row_4, row_5, row_6, row_7, row_8, row_9)
     square9 = [row7[6], row7[7], row7[8], row8[6], row8[7], row8[8], row9[6], row9[7], row9[8]]
 
 
-
-
-
     #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     #ANALYSIS
 
     #The function 'possible_values_by_row_column_square' provides all possible values for a single box based on its row, column, and square.
-
     def possible_values_by_row_column_square(row, column, square):
 
         row_value_list = []
