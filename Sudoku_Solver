@@ -20,7 +20,7 @@ row7 = [0 , 0 , 9 , 3 , 0 , 0 , 0 , 7 , 4]
 row8 = [0 , 4 , 0 , 0 , 5 , 0 , 0 , 3 , 6]
 row9 = [7 , 0 , 3 , 0 , 1 , 8 , 0 , 0 , 0]
 
-#The function show_board prints the input sudoku puzzle.
+#The function show_board prints the sudoku puzzle.
 def show_board():
     print(row1)
     print(row2)
