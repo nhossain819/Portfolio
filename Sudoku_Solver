@@ -301,7 +301,6 @@ row6_possible_values = [possible_values_box46, possible_values_box47, possible_v
 
 row7_possible_values = [possible_values_box55, possible_values_box56, possible_values_box57, possible_values_box58, possible_values_box59, possible_values_box60, possible_values_box61, possible_values_box62, possible_values_box63]
 
-
 row8_possible_values = [possible_values_box64, possible_values_box65, possible_values_box66, possible_values_box67, possible_values_box68, possible_values_box69, possible_values_box70, possible_values_box71, possible_values_box72 ]
 
 row9_possible_values = [possible_values_box73, possible_values_box74, possible_values_box75, possible_values_box76, possible_values_box77, possible_values_box78, possible_values_box79, possible_values_box80, possible_values_box81]
