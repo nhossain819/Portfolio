@@ -1,7 +1,5 @@
 """
 DESCRIPTION:
-2/11/20 ONGOING PROJECT
-
 The following program takes in a sudoku board in terms of its rows and returns a completed sudoku puzzle.
 """
 #Input the sudoku board here using zeros instead of blanks.
