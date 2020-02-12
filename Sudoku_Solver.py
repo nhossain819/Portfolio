@@ -284,7 +284,7 @@ print('Original Board')
 show_board()
 print(' ')
 
-#Run the sudoku_solver function until
+#Run the sudoku_solver function numerous times to ensure all boxes are filled with correct values.
 runs_until_solved = list(range(10))
 for run in runs_until_solved:
     sudoku_solver(row1, row2, row3, row4, row5, row6, row7, row8, row9)
