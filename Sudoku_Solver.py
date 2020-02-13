@@ -289,5 +289,8 @@ runs_until_solved = list(range(10))
 for run in runs_until_solved:
     sudoku_solver(row1, row2, row3, row4, row5, row6, row7, row8, row9)
 
+#Print the final solved sudoku board
 print('Solved Board')
 show_board()
+
+#The End
