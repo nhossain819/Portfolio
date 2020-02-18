@@ -12,7 +12,9 @@ Explanations and notes are written in pseudocode. Comments are written using Pyt
 
 """
    if A5 = "Cake"
+   
         then 1
+        
    else 0
 """
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -25,9 +27,13 @@ Explanations and notes are written in pseudocode. Comments are written using Pyt
 
 """
     if B10 = 1
+    
         if left most 5 characters of C10 = "New"
+        
             then 1
+            
         else 0
+        
     else 0
 """
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
