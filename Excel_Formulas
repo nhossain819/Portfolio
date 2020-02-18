@@ -11,7 +11,7 @@ Explanations and notes are written in pseudocode. Comments are written using Pyt
 
 
 """
-   if A5 = "Cake" 
+   if A5 = "Cake"
         then 1
    else 0
 """
@@ -24,9 +24,9 @@ Explanations and notes are written in pseudocode. Comments are written using Pyt
 
 
 """
-    if B10 = 1     
+    if B10 = 1
         if left most 5 characters of C10 = "New"
-            then 1      
+            then 1
         else 0
     else 0
 """
@@ -39,19 +39,19 @@ Explanations and notes are written in pseudocode. Comments are written using Pyt
 =IF(OR(F4="A",F4="B",F4="C",F4="D",F4="E"), "Bin1", IF(OR(F4="F", F4="G"), "Bin2", IF(OR(F4="H",F4="I"), "Bin3", "Bin4")))
 
 
-""" 
+"""
     if F4="A" or F4="B" or F4="C" or F4='D' or F4="E"
- 
+
         then "Bin1"
- 
+
     elif F4="E" or F4="F"
- 
+
         then "Bin2"
- 
+
     elif F4="G" or F4="H"
- 
+
         then "Bin3"
- 
+
     else "Bin4"
 """
 
@@ -62,16 +62,27 @@ Explanations and notes are written in pseudocode. Comments are written using Pyt
 #Bin creation based on a range of cell values.
 
 
-=IF(K6<=1000, 2.18, IF(AND(K6>1000, K6<=5000), 1.96, IF(AND(K6>5000, K6<=9000), 1.85, IF(K6>9000, 1.64, "null"))))
+=IF(K6<=1000, 3.20, IF(AND(K6>1000, K6<=5000), 2.55, IF(AND(K6>5000, K6<=9000), 2.10, IF(K6>9000, 1.55, "null"))))
+
 
 """
+    if K6 is less than 1000
 
+        then 3.20
 
+    elif K6 is greater than 1000 and less than or equal to 5000
 
+        then 2.55
 
+    elif K6 is greater than 5000 and less than or equal to 9000
 
+        then 2.10
 
+    elif K6 is greater than 9000
 
+        then 1.55
 
+    else
 
-
+        "null"
+"""
