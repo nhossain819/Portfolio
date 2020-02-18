@@ -1,13 +1,15 @@
 Excel Formulas
 
-Explanations and notes are written in Python pseudocode.
+Explanations and notes are written in pseudocode. Comments are written using Python formatting.
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 #Basic if/then logic in Excel
 
+
 =IF(A5="Cake",1,0)
- 
+
+
 """
    if A5 = "Cake" 
         then 1
@@ -17,7 +19,9 @@ Explanations and notes are written in Python pseudocode.
 
 #Multi-Step if/then logic based on two separate cell values.
 
+
 =IF(B10=1,IF(LEFT(C10,5)="New",1,0),0)
+
 
 """
     if B10 = 1     
@@ -29,9 +33,11 @@ Explanations and notes are written in Python pseudocode.
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
-#Bin creation based on a cell value.
+#Bin creation based on a single cell value.
+
 
 =IF(OR(F4="A",F4="B",F4="C",F4="D",F4="E"), "Bin1", IF(OR(F4="F", F4="G"), "Bin2", IF(OR(F4="H",F4="I"), "Bin3", "Bin4")))
+
 
 """ 
     if F4="A" or F4="B" or F4="C" or F4='D' or F4="E"
@@ -48,3 +54,24 @@ Explanations and notes are written in Python pseudocode.
  
     else "Bin4"
 """
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+
+#Bin creation based on a range of cell values.
+
+
+=IF(K6<=1000, 2.18, IF(AND(K6>1000, K6<=5000), 1.96, IF(AND(K6>5000, K6<=9000), 1.85, IF(K6>9000, 1.64, "null"))))
+
+"""
+
+
+
+
+
+
+
+
+
+
