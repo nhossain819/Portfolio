@@ -10,7 +10,7 @@ These tasks and queries below involve a hypothetical company that delivers cakes
 The schema of the hypothetical company database is available upon request.
 
 
---XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 --TASK 1
 --Create a single table that contains:
 --  	The account_id_number and name of every active account in region 3 of Italy.
