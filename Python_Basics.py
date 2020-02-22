@@ -6,7 +6,7 @@ Each function or group of functions begin with a multi-line comment describing t
 This is the result of self-teaching as well as practice exercises found through W3resource.
 """
 
-#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 """
 List Comparison
 The following function returns a list of colors from color_list_1 which are not present in color_list_2.
