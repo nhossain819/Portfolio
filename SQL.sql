@@ -51,7 +51,7 @@ LEFT JOIN
 			(SELECT dc.account_id_number
 					,count(distinct(di.individual_id)) as Num_Cakes_Delivered
 
-			from fact_individual_cake_delivered as ficd
+			FROM fact_individual_cake_delivered as ficd
 
 			INNER JOIN dimension_individual as ds
 				on ficd.individual_id = di.individual_id
@@ -73,7 +73,7 @@ LEFT JOIN
 			(SELECT dc.account_id_number
 					, count(distinct(di.individual_id)) as count_pies_delivered
 
-			from fact_individual_pie_delivered as fipd
+			FROM fact_individual_pie_delivered as fipd
 
 			INNER JOIN dimension_individual as ds
 				on fipd.individual_id = di.individual_id
@@ -129,7 +129,7 @@ FROM
 	                            then di.id
 	                                else null
 	                                    end
-                        )
+                        ) as count_of_active_id
 
             FROM dimension_company as dc
 
@@ -143,7 +143,7 @@ FROM
                 , dc.company_name
                 , di.office_size
 
-            ORDER BY dc.acc_id_number
+            ORDER BY aid_s1
         )
         as QUERY1
 
@@ -168,7 +168,7 @@ LEFT JOIN
 				GROUP BY dc.acc_id_number
 					, dc.company_name
 
-				ORDER BY dc.acc_id_number
+				ORDER BY aid_s2
 			)
 	    		as main_query
 
